@@ -9,22 +9,24 @@ Run API-tests manually and automatically to verify your HTTP-Responses from your
 ## Features
 
 - Backend
--- Build with SailsJS
--- RESTful webservice
--- Supports different database adapters like MySQL or MongoDB
+    - Build with SailsJS
+    - RESTful webservice
+    - Supports different database adapters like MySQL or MongoDB
 
 - Frontend
--- Build with AngularJS
--- Material Design
+    - Build with AngularJS
+    - Material Design
 
 - Swagger Support
--- link a SwaggerUI distribution for viewing your specifications
+    - Link a SwaggerUI distribution for viewing your specifications
+    - Export API specification in Swagger compatible format
+    - Use your specification for generating code to various languages (Swagger CodeGen)
 
 ## Requirements
 
 - NodeJS, npm
 - Bower
-- Ruby, Compass
+- Ruby (Bundler)
 - Apache Web-Server
 - Database (MySQL, MongoDB)
 
@@ -32,35 +34,33 @@ Run API-tests manually and automatically to verify your HTTP-Responses from your
 
 ### SetUp Database
 
-Database Model is build with MySQL-Workbench and is located at ./database_model. Please read the [SailsJS documentation](http://sailsjs.org/) for configuring different database adapters.
+Database Model is build with MySQL-Workbench and is located at ./database_model/model_database.mwb. Please read the [SailsJS documentation](http://sailsjs.org/) for configuring different database adapters.
 
 #### MySQL
 
-Create a database with phpmyadmin and synchronise database-model with your web-server-database.
+Create a database with phpmyadmin and synchronise ./database-modeldatabase-model.mwb with your web-server-database.
 View [SailsJS documentation](http://sailsjs.org/) for setting up adapters in ./backend/config/connections.js.
 
 API-Testing refer to connections mysql_local and mysql_production according to the environments development and production.
 
-Example:
+Example: ./backend/config/connections.js
 
 ```javascript
-./backend/config/connections.js
-
 mysql_local: {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
-    user      : 'root',
-    password  : 'example',
-    database  : 'api-docs-db'
+    user      : 'your-database-user',
+    password  : 'your-password',
+    database  : 'your-database-name'
 },
 mysql_production: {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
-    user      : 'swagger-manager',
-    password  : 'example',
-    database  : 'api-docs-db'
+    user      : 'your-database-user',
+    password  : 'your-password',
+    database  : 'your-database-name'
 }
 ```
 
@@ -68,18 +68,20 @@ mysql_production: {
 
 1. `cd backend` - change directory to ./backend
 2. `npm install` - install node dependencies
-3. `sails lift` - start server
 
-- hosts REST Web Service at port 1337. http://{yourHost}:1337/
+* `sails lift` - start server
+* hosts REST Web Service at port 1337. http://{yourHost}:1337/
 
 ### Frontend - AngularJS
 
 1. `cd frontend` - change directory to ./frontend
 2. `npm install` - install node dependencies
+2. `bundle install` - install gems
 3. `bower install` - install bower dependencies
-4. `grunt serve` - start server
 
-- hosts at port 9009. http://{yourHost}:9009/#/
+* `grunt serve` - build app for develop
+* `grunt build production` - build distribution for deployment
+* hosts at port 9009. http://{yourHost}:9009/#/
 
 ## Testing Frontend
 
@@ -104,4 +106,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Related Commercial Projects
 
-[https://studio.restlet.com](https://studio.restlet.com)
+* [Restlet](https://studio.restlet.com)

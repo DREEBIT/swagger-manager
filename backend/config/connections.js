@@ -46,18 +46,18 @@ module.exports.connections = {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
-    user      : 'swagger-manager',
-    password  : 'password',
-    database  : 'api-docs-db'
+    //user      : 'your-database-user',
+    //password  : 'your-password',
+    //database  : 'your-database-name'
   },
 
   mysql_production: {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
-    user      : 'swagger-manager',
-    password  : 'password',
-    database  : 'api-docs-db'
+    //user      : 'your-database-user',
+    //password  : 'your-password',
+    //database  : 'your-database-name'
   },
 
   /***************************************************************************
