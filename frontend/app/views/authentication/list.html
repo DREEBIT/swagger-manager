@@ -1,0 +1,56 @@
+<toolbar class="md-whiteframe-z1" data="toolbarOptions"></toolbar>
+
+<div layout-gt-md="row" ng-init="init()">
+	<md-card layout-padding flex>
+
+		<div layout-align="space-between center" layout="row">
+			<h4>Authentication Header Fields</h4>
+
+			<span flex></span>
+
+			<md-button class="md-icon-button" aria-label="Refresh Authentication List" ng-click="init()">
+				<ng-md-icon icon="sync"></ng-md-icon>
+				<md-tooltip>Refresh List</md-tooltip>
+			</md-button>
+
+			<md-button class="md-icon-button" aria-label="Add Header Field" ng-click="add()">
+				<ng-md-icon icon="add"></ng-md-icon>
+				<md-tooltip>Add Header Field</md-tooltip>
+			</md-button>
+
+			<md-button class="md-icon-button md-secondary" aria-label="Delete Header Fields" ng-click="delete()">
+				<ng-md-icon icon="delete"></ng-md-icon>
+				<md-tooltip>Delete Header Field</md-tooltip>
+			</md-button>
+
+			<md-input-container ng-show="showSearch">
+				<label>&nbsp;</label>
+				<input ng-model="search" placeholder="Search">
+			</md-input-container>
+
+			<md-button class="md-icon-button" aria-label="Search Header Fields" ng-click="toggleSearchBar()">
+				<ng-md-icon icon="{{searchIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+				<md-tooltip ng-if="!showSearch">Search</md-tooltip>
+				<md-tooltip ng-if="showSearch">Clear Search</md-tooltip>
+			</md-button>
+		</div>
+
+		<md-list layout="column">
+			<md-list-item ng-repeat="authentication in list | filter: search: strict | orderBy: 'key' track by $index">
+				<md-checkbox class="md-primary" ng-model="authentication.selected"></md-checkbox>
+
+				<p>{{authentication.key}}</p>
+
+				<span flex></span>
+
+				<p class="list-item-description">{{authentication.value}}</p>
+
+				<md-switch class="md-primary" ng-model="authentication.active" ng-click="changeActive(authentication)" aria-label="Change Status">
+					<md-tooltip>Change Status</md-tooltip>
+				</md-switch>
+
+				<md-divider ng-if="!$last"></md-divider>
+			</md-list-item>
+		</md-list>
+	</md-card>
+</div>

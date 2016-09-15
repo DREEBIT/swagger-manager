@@ -1,0 +1,94 @@
+<md-toolbar class="md-whiteframe-z1 md-toolbar-tools" layout="row" layout-align="space-between center" layout-padding>
+	<md-button class="md-icon-button" hide-gt-lg aria-label="Toggle Sidenavigation" ng-click="toggleSidenav('left')">
+		<ng-md-icon icon="menu"></ng-md-icon>
+	</md-button>
+
+	<h2>{{toolbarTitle}}</h2>
+</md-toolbar>
+
+<md-content>
+	<div layout="column" ng-init="init()">
+		<md-card flex layout-padding>
+			<div layout-align="space-between center" layout="row">
+				<h4>Log</h4>
+
+				<span flex></span>
+
+				<md-button class="md-icon-button" aria-label="Clear Log" ng-click="clearLog()" ng-if="showLog">
+					<ng-md-icon icon="clear"></ng-md-icon>
+					<md-tooltip>Clear Log</md-tooltip>
+				</md-button>
+
+				<md-button class="md-icon-button" aria-label="Watch/Unwatch Log" ng-click="toggleAutoScrollLog(!autoScrollLog)" ng-if="showLog">
+					<ng-md-icon icon="{{autoScrollIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+					<md-tooltip>Watch/Unwatch Log</md-tooltip>
+				</md-button>
+
+				<md-menu md-offset="0 -7">
+					<md-button aria-label="Filter Menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+						<ng-md-icon md-menu-origin icon="filter_list"></ng-md-icon>
+					</md-button>
+
+					<md-menu-content width="2">
+						<md-menu-item ng-repeat="item in types">
+							<md-button ng-click="setFilterType(item)"><span md-menu-align-target></span>{{item}}</md-button>
+						</md-menu-item>
+					</md-menu-content>
+				</md-menu>
+
+				<md-button class="md-icon-button" aria-label="Show/Hide Log" ng-click="toggleShowLog(!showLog)">
+					<ng-md-icon icon="{{showLogIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+					<md-tooltip>Show/Hide Log</md-tooltip>
+				</md-button>
+			</div>
+
+			<div scroll-glue="autoScrollLog" layout-padding class="test-log" ng-show="showLog" ng-hide="!showLog">
+				<div ng-repeat="result in testResults | filter: type" ng-class="{'test-success': result.type === 'success', 'test-error': result.type === 'error', 'test-info': result.type === 'info'}">
+					<span ng-bind="result.time | date:'dd.MM.yyyy HH:MM:ss'" ></span>: {{result.event}}<br/>
+					<span ng-if="result.error" class="test-error test-error-message"></span>{{result.error.stack}}
+				</div>
+			</div>
+		</md-card>
+
+		<md-card flex layout-padding>
+			<div layout-align="space-between center" layout="row">
+				<h4>Run Tests</h4>
+
+				<span flex></span>
+
+				<md-button class="md-icon-button" aria-label="Test" ng-click="runAutomatedTests()">
+					<ng-md-icon icon="play_circle_outline"></ng-md-icon>
+					<md-tooltip>Run active tests</md-tooltip>
+				</md-button>
+
+				<md-input-container ng-class="{'flex': showSearch}" ng-show="showSearch">
+					<label>&nbsp;</label>
+					<input ng-model="search" placeholder="Search">
+				</md-input-container>
+
+				<md-button class="md-icon-button" aria-label="Search Definition" ng-click="toggleSearchBar()">
+					<ng-md-icon icon="{{searchIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+					<md-tooltip ng-if="!showSearch">Search</md-tooltip>
+					<md-tooltip ng-if="showSearch">Clear Search</md-tooltip>
+				</md-button>
+			</div>
+
+			<md-list layout="column">
+				<md-list-item ng-repeat="method in list | filter: search: strict | orderBy:'path.title'">
+					<p>{{method.name}} {{method.path.title}}</p>
+
+					<span flex></span>
+
+					<md-switch class="md-primary" ng-model="method.testActive" ng-click="changeTestActive(method)"></md-switch>
+<!--
+					<md-button class="md-icon-button" aria-label="Run Single Test" ng-click="runSingleTest($index)">
+						<ng-md-icon icon="play_circle_outline"></ng-md-icon>
+						<md-tooltip>Run single test</md-tooltip>
+					</md-button>-->
+
+					<md-divider ng-if="!$last"></md-divider>
+				</md-list-item>
+			</md-list>
+		</md-card>
+	</div>
+</md-content>

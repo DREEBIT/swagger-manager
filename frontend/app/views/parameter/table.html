@@ -1,0 +1,44 @@
+<div layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<span flex></span>
+
+		<md-button class="md-icon-button" aria-label="Add Parameter" ng-click="add($event)">
+			<md-tooltip>Add Parameter</md-tooltip>
+			<ng-md-icon icon="add"></ng-md-icon>
+		</md-button>
+
+		<md-button class="md-icon-button" aria-label="Delete Parameter" ng-click="delete(selected)">
+			<md-tooltip>Delete Parameter</md-tooltip>
+			<ng-md-icon icon="delete"></ng-md-icon>
+		</md-button>
+	</div>
+
+	<md-data-table-container>
+		<table md-data-table class="md-primary" md-row-select="selected" md-progress="deferred">
+			<thead md-order="query.order" md-trigger="onorderchange">
+				<tr>
+					<th order-by="name" name="Name"></th>
+					<th order-by="in" name="In"></th>
+					<th order-by="type" name="Type"></th>
+					<th width="50"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr md-auto-select ng-repeat="parameter in method.parameters | orderBy: query.order">
+					<td>
+						{{parameter.name}}
+						<md-tooltip ng-if="parameter.description">
+							{{ parameter.description }}
+						</md-tooltip>
+					</td>
+					<td>{{parameter.in}}</td>
+					<td ng-bind-html="getFormatString(parameter)"></td>
+					<td md-cell ng-click="edit($event, parameter, $index)">
+						<ng-md-icon icon="edit" size="20"></ng-md-icon>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-data-table-container>
+</div>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>API Manager</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<!-- build:css(.) styles/vendor.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+	<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+	<link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+	<link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.min.css" />
+	<link rel="stylesheet" href="bower_components/ui-select/dist/select.css" />
+	<link rel="stylesheet" href="bower_components/v-accordion/dist/v-accordion.css" />
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css(.tmp) styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+</head>
+<body layout="row" ng-app="amApp">
+
+	<sidenav></sidenav>
+
+	<md-content layout="column" flex>
+		<ui-view ng-view class="view-animate"></ui-view>
+	</md-content>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
+<script src="bower_components/api-check/dist/api-check.js"></script>
+<script src="bower_components/angular-formly/dist/formly.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-ui-router-tabs/src/ui-router-tabs.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script src="bower_components/ui-select/dist/select.js"></script>
+<script src="bower_components/v-accordion/dist/v-accordion.js"></script>
+<script src="bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-formly-material/dist/formly-material.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-material-sidenav/angular-material-sidenav.js"></script>
+<script src="bower_components/angular-scroll-glue/src/scrollglue.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/dashboard/overview.js"></script>
+<script src="scripts/controllers/setting/detail.js"></script>
+<script src="scripts/controllers/tag/list.js"></script>
+<script src="scripts/controllers/tag/add.js"></script>
+<script src="scripts/controllers/tag/detail.js"></script>
+<script src="scripts/controllers/definition/list.js"></script>
+<script src="scripts/controllers/definition/add.js"></script>
+<script src="scripts/controllers/definition/tabs.js"></script>
+<script src="scripts/controllers/definition/detail.js"></script>
+<script src="scripts/controllers/definition/sample.js"></script>
+<script src="scripts/controllers/definition/resources.js"></script>
+<script src="scripts/controllers/property/table.js"></script>
+<script src="scripts/controllers/property/detail.js"></script>
+<script src="scripts/controllers/method/add.js"></script>
+<script src="scripts/controllers/method/detail.js"></script>
+<script src="scripts/controllers/response/table.js"></script>
+<script src="scripts/controllers/response/detail.js"></script>
+<script src="scripts/controllers/parameter/table.js"></script>
+<script src="scripts/controllers/parameter/detail.js"></script>
+<script src="scripts/controllers/path/list.js"></script>
+<script src="scripts/controllers/path/add.js"></script>
+<script src="scripts/controllers/path/detail.js"></script>
+<script src="scripts/controllers/method/tabs.js"></script>
+<script src="scripts/controllers/authentication/list.js"></script>
+<script src="scripts/controllers/authentication/add.js"></script>
+<script src="scripts/controllers/test/list.js"></script>
+
+<script src="scripts/configs/formly.js"></script>
+
+<script src="scripts/services/notification.js"></script>
+<script src="scripts/services/restangular.js"></script>
+<script src="scripts/services/formatservice.js"></script>
+
+<script src="scripts/directives/sidenav.js"></script>
+<script src="scripts/directives/toolbar.js"></script>
+<script src="scripts/directives/menuLink.js"></script>
+<script src="scripts/directives/menuExternalLink.js"></script>
+<script src="scripts/directives/menuToggle.js"></script>
+
+<!-- endbuild -->
+</body>
+</html>

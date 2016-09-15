@@ -1,0 +1,20 @@
+.code-snippet {
+	background-color: #F1F3F3;
+	padding: 20px;
+	font-weight: bold;
+	color: #383838;
+}
+
+.code-snippet > div {
+	margin-left: 1em;
+}
+
+.code-snippet-value,
+.code-snippet-value > a:link,
+.code-snippet-value > a:link,
+.code-snippet-value > a:visited,
+.code-snippet-value > a:hover,
+.code-snippet-value > a:active {
+	font-weight: normal;
+	color: #3e8cff;
+}

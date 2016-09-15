@@ -1,0 +1,22 @@
+<md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z1 md-locked-open"
+            md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')">
+
+	<header class="sidenav-header">
+		<a ng-href="/" href="/" class="sidenav-logo">
+			<img ng-src="images/apimanager-logo.png" alt/>
+		</a>
+	</header>
+
+	<md-content flex role="navigation">
+		<ul class="sidenav-menu" layout="column">
+			<li ng-repeat="section in sections" layout="column" layout-align="start center">
+
+				<menu-link section="section" ng-if="section.type === 'link'"></menu-link>
+
+				<menu-external-link section="section" ng-if="section.type === 'external-link'"></menu-external-link>
+
+				<menu-toggle section="section" ng-if="section.type === 'toggle'"></menu-toggle>
+			</li>
+		</ul>
+	</md-content>
+</md-sidenav>

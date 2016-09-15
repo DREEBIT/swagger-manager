@@ -1,0 +1,17 @@
+<md-dialog aria-label="Add Method">
+
+	<md-dialog-content class="md-dialog-content">
+		<h4 class="modal-title">Add new Method</h4>
+
+		<form ng-submit="submit()" novalidate>
+			<formly-form model="method" fields="formFields" form="form">
+			</formly-form>
+		</form>
+	</md-dialog-content>
+
+	<div class="md-actions" layout="row">
+		<md-button class="md-primary" type="submit" ng-click="add(method)" ng-disabled="form.$invalid">Add</md-button>
+		<md-button ng-click="cancel()">Cancel</md-button>
+	</div>
+
+</md-dialog>

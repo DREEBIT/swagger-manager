@@ -1,0 +1,42 @@
+<div layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<span flex></span>
+
+		<md-button class="md-icon-button" aria-label="Add Property" ng-click="add($event)">
+			<ng-md-icon icon="add"></ng-md-icon>
+			<md-tooltip>Add Property</md-tooltip>
+		</md-button>
+
+		<md-button class="md-icon-button" aria-label="Delete Property" ng-click="delete(selected)">
+			<ng-md-icon icon="delete"></ng-md-icon>
+			<md-tooltip>Delete Property</md-tooltip>
+		</md-button>
+	</div>
+
+	<md-data-table-container>
+		<table md-data-table class="md-primary" md-row-select="selected" md-progress="deferred">
+			<thead md-order="query.order" md-trigger="onorderchange">
+				<tr>
+					<th order-by="key" name="Key"></th>
+					<th order-by="type" name="Type"></th>
+					<th width="50"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr md-auto-select ng-repeat="property in definition.properties | orderBy: query.order">
+					<td>
+						{{property.key}} <span ng-show="property.required" class="md-primary">*</span>
+						<md-tooltip ng-if="property.description">
+							{{ property.description }}
+						</md-tooltip>
+					</td>
+					<td ng-bind-html="getFormatString(property)"></td>
+					<td md-cell ng-click="edit($event, property)">
+						<ng-md-icon icon="edit" size="20"></ng-md-icon>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-data-table-container>
+</div>

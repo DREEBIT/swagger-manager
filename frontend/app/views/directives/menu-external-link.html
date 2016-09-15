@@ -1,0 +1,13 @@
+<!--<md-button ng-click="focusSection()" href="{{section.link}}" target="_blank">
+	<ng-md-icon icon="{{section.icon}}" size="20"></ng-md-icon>
+	{{section | humanizeDoc}}
+	<md-tooltip ng-if="linkSwaggerUi == '' || linkSwaggerUi == null">{{section.tooltip}}</md-tooltip>
+</md-button>-->
+
+<md-button ng-if="section.type === 'external-link'"
+           ng-disabled="section.link == '' || section.link == null" ng-href="{{section.link}}"
+           target="_blank">
+	<ng-md-icon icon="{{section.icon}}" size="20"></ng-md-icon>
+	{{section.name}}
+	<md-tooltip ng-if="section.link == '' || section.link == null">{{section.tooltip}}</md-tooltip>
+</md-button>

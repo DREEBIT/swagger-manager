@@ -1,0 +1,114 @@
+md-sidenav.md-locked-open {
+	min-width: 272px;
+	max-width: 272px;
+}
+
+.site-sidenav {
+	background-color: #2196f3;
+}
+
+.site-sidenav md-content {
+	background: transparent;
+}
+
+.sidenav-header {
+	background-color: #2196f3;
+	border-bottom: 1px solid #1085e2;
+}
+
+.am_logotype {
+	color: white;
+	text-align: center;
+	font-weight: 400;
+	font-size: 26px;
+}
+
+.sidenav-logo {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
+	margin: 0 auto;
+}
+
+.sidenav-logo img {
+	height: 128px;
+}
+
+.sidenav-menu {
+	padding: 0;
+	max-width: 100%;
+	list-style: none;
+	overflow-x: hidden;
+}
+
+.sidenav-menu > li:last-child {
+	border-bottom: 1px solid #1085e2;
+}
+
+.sidenav-menu,
+.toggle-menu {
+	width: 100%;
+	padding: 0;
+}
+
+.sidenav-menu .md-button,
+.sidenav-menu .md-button p,
+.toggle-menu .md-button,
+.toggle-menu .md-button p {
+	border-radius: 0;
+	cursor: pointer;
+	display: block;
+	align-items: inherit;
+	line-height: 40px;
+	margin: 0;
+	max-height: 40px;
+	overflow: hidden;
+	text-align: left;
+	white-space: normal;
+	width: 100%;
+}
+
+.sidenav-menu .md-button,
+.sidenav-menu .md-button p {
+	padding-left: 16px;
+	color: white;
+}
+
+.toggle-menu .md-button,
+.toggle-menu .md-button p {
+	padding-left: 48px;
+}
+
+.menu-headline p {
+	color: ghostwhite !important;
+}
+
+menu-link,
+menu-toggle,
+menu-external-link{
+	width: 100%;
+}
+
+menu-toggle ul{
+	padding: 0;
+}
+
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+	transition: 0.5s linear all;
+	opacity: 0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+
+.active {
+	background-color: lightskyblue;
+}
+.sidenav-heading{
+	color: lightslategrey;
+}

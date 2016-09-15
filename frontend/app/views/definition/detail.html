@@ -1,0 +1,30 @@
+<div layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<span flex></span>
+
+		<md-button class="md-icon-button" ng-click="save(definition)" aria-label="Save" ng-disabled="form.$invalid">
+			<ng-md-icon icon="save"></ng-md-icon>
+			<md-tooltip>Save</md-tooltip>
+		</md-button>
+	</div>
+
+	<form novalidate>
+		<formly-form model="definition" fields="formFields" form="form">
+		</formly-form>
+	<!--
+		<md-autocomplete
+				md-selected-item="definition.extends.title"
+				md-search-text="searchText"
+				md-items="item in querySearch(searchText)"
+				md-item-text="item.title"
+				md-min-length="0"
+				placeholder="What is your favorite US state?">
+			<md-item-template>
+				<span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
+			</md-item-template>
+			<md-not-found>
+				No states matching "{{searchText}}" were found.
+			</md-not-found>
+		</md-autocomplete>-->
+	</form>
+</div>

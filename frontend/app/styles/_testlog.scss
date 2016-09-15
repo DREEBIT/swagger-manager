@@ -1,0 +1,23 @@
+.test-log{
+	border: solid 1px lightgrey;
+	height: 250px;
+	overflow: auto;
+	border-radius: 2px;
+}
+
+.test-success{
+	color: limegreen;
+}
+
+.test-error{
+	color: orangered;
+}
+
+.test-info{
+}
+
+[scroll-glue-top],
+[scroll-glue-bottom],
+[scroll-glue]{
+	overflow-y: scroll;
+}

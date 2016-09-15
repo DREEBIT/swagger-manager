@@ -1,0 +1,21 @@
+.vAccordion--default {
+	padding: 8px 0;
+}
+
+.vAccordion--default v-pane-header {
+	height: 48px;
+	margin: 0;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+.vAccordion--default v-pane-header p {
+	margin: 9px 0 0 16px;
+}
+
+.vAccordion--default v-pane-content div {
+	padding: 0;
+}
+
+.v-accordion-header-checkbox{
+	margin-top: 6px;
+}

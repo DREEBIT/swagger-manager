@@ -1,0 +1,19 @@
+<md-dialog aria-label="Add Authentication">
+	<md-dialog-content class="md-dialog-content">
+		<h4 class="modal-title">Add new Tag</h4>
+
+		<form ng-submit="submit()" novalidate>
+			<formly-form model="authentication" fields="formFields" form="form">
+			</formly-form>
+		</form>
+	</md-dialog-content>
+
+	<div class="md-actions" layout="row">
+		<md-checkbox class="float-left md-primary" ng-model="createAnother" aria-label="Create Another Tag"> Create
+			Another
+		</md-checkbox>
+		<md-button class="md-primary" type="submit" ng-click="add(authentication)" ng-disabled="form.$invalid">Add</md-button>
+		<md-button ng-click="cancel()">Cancel</md-button>
+	</div>
+
+</md-dialog>

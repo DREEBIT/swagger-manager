@@ -1,0 +1,68 @@
+<md-toolbar class="md-whiteframe-z1 md-toolbar-tools" layout="row" layout-align="space-between center" layout-padding>
+	<md-button class="md-icon-button" hide-gt-lg aria-label="Toggle Sidenavigation" ng-click="toggleSidenav('left')">
+		<ng-md-icon icon="menu"></ng-md-icon>
+	</md-button>
+
+	<h2>{{toolbarTitle}}</h2>
+</md-toolbar>
+
+<md-content>
+	<div layout-gt-md="row" ng-init="init()">
+
+		<md-card flex layout-padding>
+
+			<div layout-align="space-between center" layout="row">
+
+				<span flex></span>
+
+				<md-button class="md-icon-button" aria-label="Save" type="submit" ng-click="save(setting)"
+				           ng-disabled="formswagger.$invalid || formtest.$invalid || forminfo.$invalid || formcontact.$invalid || formlicence.$invalid || formdocs.$invalid">
+					<md-tooltip>Save Project Settings</md-tooltip>
+					<ng-md-icon icon="save"></ng-md-icon>
+				</md-button>
+			</div>
+
+			<h4>SwaggerUI</h4>
+
+			<form novalidate>
+				<formly-form model="setting" fields="swaggerFormFields" form="formswagger">
+				</formly-form>
+			</form>
+
+			<h4>Tests</h4>
+
+			<form novalidate>
+				<formly-form model="setting" fields="testFormFields" form="formtest">
+				</formly-form>
+			</form>
+
+			<h4>Info</h4>
+
+			<form novalidate>
+				<formly-form model="setting" fields="infoFormFields" form="forminfo">
+				</formly-form>
+			</form>
+
+			<h4>Contact</h4>
+
+			<form ng-submit="submit()" novalidate>
+				<formly-form model="setting" fields="contactFormFields" form="formcontact">
+				</formly-form>
+			</form>
+
+			<h4>Licence</h4>
+
+			<form novalidate>
+				<formly-form model="setting" fields="licenceFormFields" form="formlicence">
+				</formly-form>
+			</form>
+
+			<h4>External Documentation</h4>
+
+			<form novalidate>
+				<formly-form model="setting" fields="externalDocsFormFields" form="formdocs">
+				</formly-form>
+			</form>
+		</md-card>
+	</div>
+</md-content>

@@ -1,0 +1,17 @@
+<md-toolbar class="md-toolbar-tools" layout="row" layout-align="space-between center" layout-padding>
+
+  <span class="md-toolbar-tools">
+      <md-button class="md-icon-button" hide-gt-lg aria-label="Toggle Sidenavigation" ng-click="toggleSidenav('left')">
+	      <ng-md-icon icon="menu"></ng-md-icon>
+      </md-button>
+      <h2>{{data.title}}</h2>
+  </span>
+
+  <span class="md-toolbar-tools">
+    <md-button class="md-icon-button" ng-repeat="action in data.actions"
+               aria-label="{{action.arialabel || 'Action ' + $index}}">
+	    <ng-md-icon icon="{{action.icon}}"></ng-md-icon>
+    </md-button>
+  </span>
+
+</md-toolbar>

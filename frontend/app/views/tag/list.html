@@ -1,0 +1,61 @@
+<md-toolbar class="md-whiteframe-z1 md-toolbar-tools" layout="row" layout-align="space-between center" layout-padding>
+	<md-button class="md-icon-button" hide-gt-lg aria-label="Toggle Sidenavigation" ng-click="toggleSidenav('left')">
+		<ng-md-icon icon="menu"></ng-md-icon>
+	</md-button>
+
+	<h2>{{toolbarTitle}}</h2>
+</md-toolbar>
+
+<md-content>
+	<div layout-gt-md="row" ng-init="init()">
+		<div flex-gt-md="50">
+			<md-card layout-padding layout="column">
+				<div layout-align="space-between center" layout="row">
+					<h4>Tags List</h4>
+
+					<span flex></span>
+
+					<md-button class="md-icon-button" aria-label="Refresh Tag List" ng-click="init()">
+						<ng-md-icon icon="sync"></ng-md-icon>
+						<md-tooltip>Refresh List</md-tooltip>
+					</md-button>
+
+					<md-button class="md-icon-button" aria-label="Add Tag" ng-click="add()">
+						<ng-md-icon icon="add"></ng-md-icon>
+						<md-tooltip>Add Tag</md-tooltip>
+					</md-button>
+
+					<md-button class="md-icon-button md-secondary" aria-label="Delete Tag" ng-click="delete()">
+						<ng-md-icon icon="delete"></ng-md-icon>
+						<md-tooltip>Delete Tags</md-tooltip>
+					</md-button>
+
+					<md-input-container ng-show="showSearch">
+						<label>&nbsp;</label>
+						<input ng-model="search.name" placeholder="Search">
+					</md-input-container>
+
+					<md-button class="md-icon-button" aria-label="Search Definition" ng-click="toggleSearchBar()">
+						<ng-md-icon icon="{{searchIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+						<md-tooltip ng-if="!showSearch">Search</md-tooltip>
+						<md-tooltip ng-if="showSearch">Clear Search</md-tooltip>
+					</md-button>
+				</div>
+
+				<md-list layout="column">
+					<md-list-item layout="space-between" ng-repeat="tag in list | filter: search: strict | orderBy: 'name' track by $index" ng-click="navigateTo('tag.detail', {id: tag.id, tag: tag})">
+						<md-checkbox class="md-primary" ng-model="tag.selected"></md-checkbox>
+
+						<p>{{tag.name}}</p>
+
+						<p class="list-item-description">{{tag.description}}</p>
+
+						<md-divider ng-if="!$last"></md-divider>
+					</md-list-item>
+				</md-list>
+			</md-card>
+		</div>
+
+		<ui-view flex></ui-view>
+	</div>
+</md-content>

@@ -1,0 +1,7 @@
+<md-card>
+	<md-tabs md-dynamic-height class="md-primary md-hue-1">
+		<md-tab flex ng-repeat="tab in tabData" label="{{tab.heading}}" ui-sref="{{tab.route}}">
+			<ui-view></ui-view>
+		</md-tab>
+	</md-tabs>
+</md-card>

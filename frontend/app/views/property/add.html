@@ -1,0 +1,19 @@
+<md-dialog aria-label="Add Property">
+
+	<md-dialog-content class="md-dialog-content">
+		<h4 class="modal-title">Add new Property</h4>
+
+		<form ng-submit="submit()" novalidate>
+			<formly-form model="property" fields="formFields" form="form">
+			</formly-form>
+		</form>
+	</md-dialog-content>
+
+	<div class="md-actions" layout="row">
+		<md-checkbox class="md-primary" ng-model="createAnother" aria-label="Create Another Property"> Create Another
+		</md-checkbox>
+		<md-button class="md-primary" type="submit" ng-click="add(property)" ng-disabled="form.$invalid">Add</md-button>
+		<md-button type="button" ng-click="cancel()">Cancel</md-button>
+	</div>
+
+</md-dialog>

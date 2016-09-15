@@ -1,0 +1,49 @@
+<toolbar class="md-whiteframe-z1" data="toolbarOptions"></toolbar>
+
+<div layout-gt-md="row" ng-init="init()">
+	<md-card flex-gt-md="50">
+
+		<md-list layout-padding>
+			<h4>Last Changes</h4>
+
+			<md-list-item ng-repeat="lastChange in lastChanges">
+				<p>{{lastChange.updatedAt | date: 'dd.MM.yyyy | HH:mm'}}</p>
+				<span flex></span>
+
+				<p class="md-secondary">{{lastChange.title || lastChange.name || lastChange.index}}</p>
+			</md-list-item>
+		</md-list>
+
+	</md-card>
+
+	<md-card flex>
+		<md-list layout-padding>
+			<h4>Statistics</h4>
+
+			<md-list-item ng-click="$state.go('tag')">
+				<p>Tags:</p>
+
+				<p class="md-secondary">{{tags.length}}</p>
+			</md-list-item>
+
+			<md-list-item ng-click="$state.go('definition')">
+				<p>Definitions:</p>
+
+				<p class="md-secondary">{{definitions.length}}</p>
+			</md-list-item>
+
+			<md-list-item ng-click="$state.go('path')">
+				<p>Paths:</p>
+
+				<p class="md-secondary">{{paths.total}}</p>
+			</md-list-item>
+
+			<md-list-item>
+				<p>Methods:</p>
+
+				<p class="md-secondary">{{methods.total}}</p>
+			</md-list-item>
+		</md-list>
+
+	</md-card>
+</div>

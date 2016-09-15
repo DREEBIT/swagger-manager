@@ -1,0 +1,76 @@
+<toolbar class="md-whiteframe-z1" data="toolbarOptions"></toolbar>
+
+<div layout-gt-md="row" ng-init="init()">
+	<div flex-gt-md="50">
+		<md-card layout-padding layout="column">
+			<div layout-align="space-between center" layout="row">
+				<h4>Paths List</h4>
+
+				<span flex></span>
+
+				<md-button class="md-icon-button" aria-label="Refresh Path List" ng-click="init()">
+					<ng-md-icon icon="sync"></ng-md-icon>
+					<md-tooltip>Refresh List</md-tooltip>
+				</md-button>
+
+				<md-button class="md-icon-button" aria-label="Add Path" ng-click="addPath($event)">
+					<ng-md-icon icon="add"></ng-md-icon>
+					<md-tooltip>Add Path</md-tooltip>
+				</md-button>
+
+				<md-button class="md-icon-button" aria-label="Delete Path" ng-click="deletePath($event)">
+					<ng-md-icon icon="delete"></ng-md-icon>
+					<md-tooltip>Delete Path</md-tooltip>
+				</md-button>
+
+				<md-button class="md-icon-button" aria-label="Collapse Paths" ng-click="toggleAllExpanded()">
+					<ng-md-icon icon="{{expandIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+					<md-tooltip ng-if="!allExpanded">Expand Paths</md-tooltip>
+					<md-tooltip ng-if="allExpanded">Collapse Paths</md-tooltip>
+				</md-button>
+
+				<md-input-container ng-show="showSearch">
+					<label>&nbsp;</label>
+					<input ng-model="search.title" placeholder="Search">
+				</md-input-container>
+
+				<md-button class="md-icon-button" aria-label="Search Paths" ng-click="toggleSearchBar()">
+					<ng-md-icon icon="{{searchIcon}}" options='{"rotation": "none", "duration": 500}'></ng-md-icon>
+					<md-tooltip ng-if="!showSearch">Search</md-tooltip>
+					<md-tooltip ng-if="showSearch">Clear Search</md-tooltip>
+				</md-button>
+			</div>
+
+			<v-accordion class="vAccordion--default" multiple control="accordion">
+				<v-pane id="{{ path.id }}" ng-repeat="path in list | filter: search : strict | orderBy: 'title' track by $index" ng-init="pathIndex = $index">
+					<v-pane-header layout="row" ng-click="navigateToPathDetails('path.detail', path)">
+						<div>
+							<md-checkbox class="md-primary float-left v-accordion-header-checkbox" aria-label="Select Path" ng-model="path.selected"></md-checkbox>
+							<p class="float-left">{{path.title}}</p>
+						</div>
+					</v-pane-header>
+
+					<v-pane-content>
+						<md-list>
+							<md-list-item ng-if="path.methods" ng-repeat="method in path.methods | orderBy: 'name'" ng-click="navigateToMethodDetails('path.tab', method)">
+								<p>{{method.name}}</p>
+
+								<md-button class="md-icon-button md-secondary" aria-label="Delete Method" ng-click="deleteMethod(method, pathIndex)">
+									<ng-md-icon icon="delete" size="20"></ng-md-icon>
+									<md-tooltip>Delete Method</md-tooltip>
+								</md-button>
+							</md-list-item>
+						</md-list>
+
+						<md-button class="" aria-label="Add Method" ng-click="addMethod(path, $index, $event)">
+							<ng-md-icon icon="add" size="20"></ng-md-icon>
+							Add Method
+						</md-button>
+					</v-pane-content>
+				</v-pane>
+			</v-accordion>
+		</md-card>
+	</div>
+
+	<ui-view flex></ui-view>
+</div>

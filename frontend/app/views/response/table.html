@@ -1,0 +1,42 @@
+<div layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<span flex></span>
+
+		<md-button class="md-icon-button" aria-label="Add Response" ng-click="add($event)">
+			<ng-md-icon icon="add"></ng-md-icon>
+			<md-tooltip>Add Response</md-tooltip>
+		</md-button>
+
+		<md-button class="md-icon-button" aria-label="Delete Response" ng-click="delete(selected)">
+			<ng-md-icon icon="delete"></ng-md-icon>
+			<md-tooltip>Delete Response</md-tooltip>
+		</md-button>
+	</div>
+
+	<md-data-table-container>
+		<table md-data-table class="md-primary" md-row-select="selected" md-progress="deferred">
+			<thead md-order="query.order" md-trigger="onorderchange">
+				<tr>
+					<th order-by="index" name="Statuscode"></th>
+					<th order-by="type" name="Type"></th>
+					<th width="50"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr md-auto-select ng-repeat="response in method.responses | orderBy: query.order">
+					<td>
+						{{response.index}}
+						<md-tooltip ng-if="response.description">
+							{{ response.description }}
+						</md-tooltip>
+					</td>
+					<td ng-bind-html="getFormatString(response)"></td>
+					<td md-cell ng-click="edit($event, response)">
+						<ng-md-icon icon="edit" size="20"></ng-md-icon>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</md-data-table-container>
+</div>

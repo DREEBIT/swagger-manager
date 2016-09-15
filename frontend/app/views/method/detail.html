@@ -1,0 +1,15 @@
+<div layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<span flex></span>
+
+		<md-button class="md-icon-button" ng-click="save(method)" aria-label="Save" ng-disabled="form.$invalid">
+			<ng-md-icon icon="save"></ng-md-icon>
+			<md-tooltip>Save</md-tooltip>
+		</md-button>
+	</div>
+
+	<form novalidate>
+		<formly-form model="method" fields="formFields">
+		</formly-form>
+	</form>
+</div>

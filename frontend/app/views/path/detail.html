@@ -1,0 +1,17 @@
+<md-card layout-padding>
+	<div layout-align="space-between center" layout="row">
+		<h4>Details "{{path.title}}"</h4>
+
+		<span flex></span>
+
+		<md-button class="md-icon-button" ng-click="save(path)" aria-label="Save" ng-disabled="form.$invalid">
+			<ng-md-icon icon="save"></ng-md-icon>
+			<md-tooltip>Save</md-tooltip>
+		</md-button>
+	</div>
+
+	<form novalidate>
+		<formly-form model="path" fields="formFields" form="form">
+		</formly-form>
+	</form>
+</md-card>

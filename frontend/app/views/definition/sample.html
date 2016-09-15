@@ -1,0 +1,11 @@
+<div class="code-snippet md-whiteframe-z0 monospace-font" layout-padding>
+	{{definition.title}}:<br/>
+	{
+	<div ng-repeat="property in definition.properties">
+
+		<span class="code-snippet-key">{{property.key}}:</span> <span class="code-snippet-value"
+		                                                              ng-bind-html="getSampleString(property)"></span>
+
+	</div>
+	}
+</div>

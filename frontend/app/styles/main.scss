@@ -1,0 +1,47 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome/fonts";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
+// endbower
+
+@import "font-awesome/scss/font-awesome";
+@import "accordion";
+@import "content";
+@import "dialog";
+@import "notification";
+@import "sidenav";
+@import "tabs";
+@import "helper";
+@import "sample";
+@import "testlog";
+@import "lists";
+@import "animations";
+
+a:hover,
+a:visited,
+a:active,
+a:link {
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+}
+
+.float-left {
+	float: left;
+}
+
+.md-button.md-icon-button {
+	margin: 0;
+}
+
+md-card > div {
+	height: 66px;
+}
+
+md-card > div > h3 {
+	margin-bottom: 22px;
+}

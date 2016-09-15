@@ -1,0 +1,25 @@
+<div layout-padding ng-init="init()">
+	<h4 ng-show="!definitionInParameters[0] && !definitionInResponses[0]">No Usage found!</h4>
+
+	<div ng-show="definitionInParameters[0]">
+		<h4>As Parameter</h4>
+
+		<md-list layout="column">
+			<md-list-item ng-repeat="parameter in definitionInParameters | orderBy:'title'" ng-show="definitionInParameters[0]" ng-click="navigateTo('definition.tab', definition)">
+				<p>{{parameter.method.name}} {{parameter.method.name}} {{parameter.index}}</p>
+				<md-divider ng-if="!$last"></md-divider>
+			</md-list-item>
+		</md-list>
+	</div>
+
+	<div ng-show="definitionInResponses[0]">
+		<h4>As Responses</h4>
+
+		<md-list layout="column">
+			<md-list-item ng-repeat="response in definitionInResponses | orderBy:'title'" ng-show="definitionInResponses[0]">
+				<p>{{response.method.name}} {{response.index}}</p>
+				<md-divider ng-if="!$last"></md-divider>
+			</md-list-item>
+		</md-list>
+	</div>
+</div>
