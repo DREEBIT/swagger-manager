@@ -1,13 +1,17 @@
-# API-Manager
+![Swagger-Manager](./psd/logo.png "Swagger-Manager")
 
-API-Manager is a web-tool for documenting and testing your RESTful-API. Build on SailsJS as backend, AngularJS as frontend.
+# Swagger-Manager
+
+Swagger-Manager is a web-tool built with SailsJS and AngularJS to document and test your REST-API. Create and manage your REST-APIs and store information persistently.
+
+Run API-tests manually and automatically to verify your HTTP-Responses from your REST webservice. Used test-tools are test-runner Mocha, assertion-library Chai, and plug-in Chai-HTTP.
 
 ## Features
 
 - Backend
 -- Build with SailsJS
--- RESTful Web Service
--- Supports different database adapter as MySQL or MongoDB
+-- RESTful webservice
+-- Supports different database adapters like MySQL or MongoDB
 
 - Frontend
 -- Build with AngularJS
@@ -20,35 +24,60 @@ API-Manager is a web-tool for documenting and testing your RESTful-API. Build on
 
 - NodeJS, npm
 - Bower
-- Compass
-- Web-Server
+- Ruby, Compass
+- Apache Web-Server
 - Database (MySQL, MongoDB)
 
-## Install
+## Install and Run
 
 ### SetUp Database
 
-Database modeled with MySQL-Workbench. Model located at directory ./database_model. SailsJS supports MySQL and MongoDB.
+Database Model is build with MySQL-Workbench and is located at ./database_model. Please read the [SailsJS documentation](http://sailsjs.org/) for configuring different database adapters.
 
 #### MySQL
 
 Create a database with phpmyadmin and synchronise database-model with your web-server-database.
 View [SailsJS documentation](http://sailsjs.org/) for setting up adapters in ./backend/config/connections.js.
 
-### Starting SailsJS - Backend
+API-Testing refer to connections mysql_local and mysql_production according to the environments development and production.
 
-1. `cd backend`
-2. `npm install`
-3. `sails lift`
+Example:
+
+```javascript
+./backend/config/connections.js
+
+mysql_local: {
+    adapter   : 'sails-mysql',
+    host      : 'localhost',
+    port      : 3306,
+    user      : 'root',
+    password  : 'example',
+    database  : 'api-docs-db'
+},
+mysql_production: {
+    adapter   : 'sails-mysql',
+    host      : 'localhost',
+    port      : 3306,
+    user      : 'swagger-manager',
+    password  : 'example',
+    database  : 'api-docs-db'
+}
+```
+
+### Backend - SailsJS
+
+1. `cd backend` - change directory to ./backend
+2. `npm install` - install node dependencies
+3. `sails lift` - start server
 
 - hosts REST Web Service at port 1337. http://{yourHost}:1337/
 
-### Starting AngularJS - Frontend
+### Frontend - AngularJS
 
-1. `cd frontend`
-2. `npm install`
-3. `bower install`
-4. `grunt serve`
+1. `cd frontend` - change directory to ./frontend
+2. `npm install` - install node dependencies
+3. `bower install` - install bower dependencies
+4. `grunt serve` - start server
 
 - hosts at port 9009. http://{yourHost}:9009/#/
 
@@ -56,6 +85,12 @@ View [SailsJS documentation](http://sailsjs.org/) for setting up adapters in ./b
 
 1. `cd frontend`
 2. `grunt test`
+
+## Help us to improve it
+
+Create your own fork of [swagger-manager](https://github.com/DREEBIT/swagger-manager)
+
+To share your changes, [submit a pull request](https://github.com/DREEBIT/swagger-manager/pull/new/master).
 
 ## MIT License
 
@@ -66,3 +101,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Related Commercial Projects
+
+[https://studio.restlet.com](https://studio.restlet.com)
