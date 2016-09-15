@@ -1,19 +1,15 @@
 'use strict';
 
 var _ = require('underscore'),
-		helper = require('./helper.js'),
-		chai = require('chai'),
-		chaiHttp = require('chai-http'),
-		expect = chai.expect,
-		assert = chai.assert,
-		Test = require('mocha').Test,
-		should = require('should');
+	helper = require('./helper.js'),
+	chai = require('chai'),
+	chaiHttp = require('chai-http'),
+	expect = chai.expect,
+	assert = chai.assert,
+	Test = require('mocha').Test,
+	should = require('should');
 
 chai.use(chaiHttp);
-
-var env = {
-	host : 'http://demo.vsm.dreebitnet.local/'
-};
 
 exports.generateTests = function(suiteInstance, callback) {
 
@@ -53,7 +49,6 @@ var getCase = function(suiteInstance,  test){
 
 				chai.request(test.request.host)
 						.get(test.request.path)
-						//.query({name: 'foo', limit: 10}) // /search?name=foo&limit=10
 						.set(test.request.auth)
 						.end(function(err, res) {
 
@@ -63,41 +58,7 @@ var getCase = function(suiteInstance,  test){
 
 							expectContentTypes(test.response.produces, res.headers);
 
-							//expectBodyIsArray(t.response.isArray, res.body[t.response.$ref]);
-							// expect array or object
-							/*if (t.response.isArray == true){
-							 assert.isArray(res.body[t.response.$ref]);
-							 }else{
-							 assert.isNotArray(res);
-							 }*/
-
-
 							expectKeysInBody(test.response.properties, res.body);
-
-							/*if(t.response.type === 'string') {
-								console.log(t.response.type + 'should be string');
-								assert.isString(res.body);
-
-							}else if(t.response.type === 'boolean'){
-								console.log(t.response.type + 'should be boolean');
-								assert.isBoolean(res.body);
-
-							}else if(t.response.type === 'integer'){
-								console.log(t.response.type + 'should be integer');
-								assert.isNumber(res.body);
-
-							}else if(t.response.type === '$ref' && t.response.$ref !== null){
-								console.log(t.response.type);
-								if(_.has(res.body, 'total')){
-									/!*console.log('Expected-Type:' + t.response.type);
-									console.log('if total');*!/
-									expect(res.body.total).to.equal(res.body.news.length);
-								}
-							}*/
-
-							//console.log(t.response.$ref);
-							//expectKeys();
-							//expectKeyTypes();
 
 							done();
 						});
